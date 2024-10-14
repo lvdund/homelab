@@ -15,11 +15,13 @@
     ```
 
 - Xem các container đang chạy:
-
-    `docker ps`
+    ```
+  docker ps
+    ```
 
 - Truy cập vào container:
-
-    `docker attach /id/`
+    ```
+  docker attach /id/
+    ```
 
 - Tổ hợp phím "Ctrl + P + Q": thoát terminal của container nhưng vẫn để container chạy
