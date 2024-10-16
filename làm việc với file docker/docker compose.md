@@ -29,4 +29,4 @@ services:
 
 - Service "web" chạy container Nginx, và ánh xạ cổng 8080 của máy chủ đến cổng 80 của container.
 - Service "db" chạy container MySQL với biến môi trường để đặt mật khẩu gốc cho MySQL.
-- Khi chạy lệnh docker-compose up, cả hai container này sẽ được khởi động và kết nối với nhau theo cấu hình được định nghĩa.
+- Khi chạy lệnh ```docker-compose up```, cả hai container này sẽ được khởi động và kết nối với nhau theo cấu hình được định nghĩa.
