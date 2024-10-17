@@ -10,3 +10,19 @@
 - MongoDB: exposed at port 4000
 
 ** Note: push include your app!!!
+
+==================================
+
+### Viết Dockerfile và Docker-compose file: Tạo 2 image
+
+- Base từ Golang image
+- Base
+- Golang app:
+      - Dùng [Gin-gonic](https://github.com/gin-gonic/gin) để setup máy chú http cổng 5000: method GET http://ip:5000/
+      - mỗi lần gọi đến url này: `countNumder += 1`
+      - `countNumber` được lưu vào mongoDB
+      - method Get http://ip:5000/count dể check `countNumber`
+- MongoDB: ra ở cổng 4000
+
+** Push cùng ứng dụng
+  
