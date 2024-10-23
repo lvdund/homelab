@@ -46,3 +46,8 @@
 - Dockerfile cho ứng dụng Golang và MongoDB.
 - Sử dụng docker-compose để khởi chạy cả 2 container này cùng lúc.
 - Push mã nguồn bao gồm cả ứng dụng lên repository
+
+
+23/10:
+- Mongo: noSQL
+- 
