@@ -7,7 +7,7 @@
 systemctl stop apparmor
 systemctl disable apparmor
 apt remove apparmor -y
-apt autoremove
+apt autoremove -y
 ```
 
 - Config network:
@@ -28,7 +28,7 @@ net.ipv4.ip_forward                 = 1
 EOF
 
 # Apply sysctl params without reboot
-sudo sysctl --system
+sysctl --system
 
 lsmod | grep br_netfilter
 lsmod | grep overlay
@@ -38,7 +38,7 @@ sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables ne
 
 - Install containerd:
 ```bash
-apt-get install containerd
+apt-get install containerd -y
 mkdir /etc/containerd
 containerd config default > /etc/containerd/config.toml
 ```
@@ -49,6 +49,7 @@ nano /etc/containerd/config.toml
 ```
 ```bash
 systemctl restart containerd.service
+systemctl status containerd.service
 ps -ef|grep containerd
 ```
 
@@ -57,10 +58,8 @@ ps -ef|grep containerd
 apt-get install -y apt-transport-https ca-certificates curl gpg
 mkdir /etc/apt/keyrings/
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
-apt-get install -y kubelet kubeadm kubectl
 apt-get update
 apt-get install -y kubelet kubeadm kubectl
 apt-mark hold kubelet kubeadm kubectl
